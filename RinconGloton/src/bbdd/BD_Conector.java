@@ -5,17 +5,14 @@ package bbdd;
 
 import java.sql.*;
 
-
 public class BD_Conector {
-	private String base;
-	private String usuario;
-	private String pass;
-	private String url;
-	protected Connection c;
+	static private String base;
+	static private String usuario;
+	static private String pass;
+	static private String url;
+	static protected Connection c;
 	
-	
-	
-	public BD_Conector(String bbdd){		
+	public static void BD_Ini(String bbdd){		
 		base=bbdd;
 		usuario="root";
 		pass="";

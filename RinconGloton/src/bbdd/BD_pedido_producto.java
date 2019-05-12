@@ -15,7 +15,7 @@ import modelos.PedidoProducto;
 public class BD_pedido_producto extends BD_Conector {
 
 	public BD_pedido_producto(String fileName) {
-		super(fileName);
+		super();
 	}
 
 	private static Statement s;

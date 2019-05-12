@@ -13,7 +13,7 @@ import modelos.PedidoProducto;
 
 public class BD_lineaOrden extends BD_Conector {
 	public BD_lineaOrden(String fileName) {
-		super(fileName);
+		super();
 
 	}
 
