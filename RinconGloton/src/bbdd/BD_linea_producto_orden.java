@@ -16,7 +16,7 @@ import modelos.LineaProductoPedido;
 public class BD_linea_producto_orden extends BD_Conector{
 
 	public BD_linea_producto_orden(String fileName) {
-		super(fileName);
+		super();
 
 	}
 	
