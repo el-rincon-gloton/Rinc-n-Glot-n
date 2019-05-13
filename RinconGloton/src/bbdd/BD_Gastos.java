@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Vector;
 
-import norm.Gastos;
+import modelos.Gastos;
 
 
 public class BD_Gastos extends BD_Conector {

@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Vector;
 
-import norm.Ventas;
-import norm.Ventas;
+import modelos.Ventas;
+
 
 public class BD_Ventas extends BD_Conector {
 	
