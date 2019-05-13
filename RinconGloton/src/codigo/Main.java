@@ -21,10 +21,10 @@ public class Main {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		int opc = 0, opc2 = 0, opc3 = 0, opc4 = 0, repetido = 0, mod, eli = 0, pedido1, pedido2, pedido3, unidades,
-				telefono, codigo2, telefonoModificado = 0;
+				telefono, codigo2, telefonoModificado = 0, confir=0;
 		double precio;
 		String variable2 = null;
-		boolean bloquear = false;
+		boolean bloquear = false ,con;
 		String tipo = null, nombre, contraseña, contraseña2, apellido = null, correo, nombreUsu, codigoEmple, confirmar,
 				dir = null, codigo, tel = null, dato;
 		BD_Conector.BD_Ini("rincón gloton");
@@ -115,30 +115,80 @@ public class Main {
 							opc2 = sc.nextInt();
 							switch (opc2) {
 							case 1:
-								System.out.println("anota el codigo del empleado");
-								codigoEmple = sc.nextLine();
-								System.out.println("seguro que deseas despedir a este empleado? pobrecito");
-								confirmar = sc.nextLine();
-								if (confirmar.equalsIgnoreCase("si")) {
-									// eliminar el usuario
-								} else {
-									System.out.println("bien hecho amigo");
+								
+									System.out.println("Aqui te mostramos la lista de los empleados con los que contamos");
+									Vector<Empleados> v8 = bd.mostrarEmpleados();
+									if (v8.size() == 0) {
+										System.out.println("en este momento no hay encargados para hecer los pedidos");
+									}
+									for (int i = 0; i < v8.size(); i++) {
+										System.out.println(i + 1 + "-" + " El empleado con este codigo "
+												+ v8.get(i).getCod_emple() + " con nombre " + v8.get(i).getNombre()
+												+ " con apellido " + v8.get(i).getApellido() + " con dni "
+												+ v8.get(i).getDNI() + " que vive en " + v8.get(i).getDireccion()
+												+ " con el telefono " + v8.get(i).getTelefono()
+												+ " que tiene este numero de seguridad social "
+												+ v8.get(i).getNum_seguridadSocial() + ", en la empresa hace este trabajo "
+												+ v8.get(i).getCargoEnLaEmpresa() + " y es encargado "
+												+ v8.get(i).getEsEncargado());
+									}
+									System.out.println("¿que empleado deseas despedir?");
+									 confir=sc.nextInt();
+									 con = bd.borrarEmpleado(v8.get(confir-1).getCod_emple());
+									if(con==true) {
+										System.out.println("empleado eliminado");
 								}
+									else {
+										System.out.println("se ha producido un error en la eliminacion del empleado");
+									}
 								break;
 							case 2:
-								System.out.println("anota el codigo del empleado");
-								codigoEmple = sc.nextLine();
+								System.out.println("Aqui te mostramos la lista de los empleados con los que contamos");
+								Vector<Empleados> v9 = bd.mostrarEmpleados();
+								if (v9.size() == 0) {
+									System.out.println("en este momento no hay encargados para hecer los pedidos");
+								}
+								for (int i = 0; i < v9.size(); i++) {
+									System.out.println(i + 1 + "-" + " El empleado con este codigo "
+											+ v9.get(i).getCod_emple() + " con nombre " + v9.get(i).getNombre()
+											+ " con apellido " + v9.get(i).getApellido() + " con dni "
+											+ v9.get(i).getDNI() + " que vive en " + v9.get(i).getDireccion()
+											+ " con el telefono " + v9.get(i).getTelefono()
+											+ " que tiene este numero de seguridad social "
+											+ v9.get(i).getNum_seguridadSocial() + ", en la empresa hace este trabajo "
+											+ v9.get(i).getCargoEnLaEmpresa() + " y es encargado "
+											+ v9.get(i).getEsEncargado());
+								}
+								System.out.println("indica que trabajador deseas modificar");
+								confir=sc.nextInt();
+								
 								System.out.println("¿que deseas modificar 1.direccion 2.telefono?");
 								mod = sc.nextInt();
+							
+								sc.nextLine();
 								if (mod == 1) {
 									System.out.println("anota la direccion");
+									dato="Direccion";
 									dir = sc.nextLine();
-									// modificar el empleado con el codigo y la direccion
+									 con = bd.modificarEmpleados(dato, dir, v9.get(confir-1).getCod_emple());
+									 if (con==true) {
+										 System.out.println("modificacion realizada");
+									 }
+									 else {
+										 System.out.println("se ha producido un error en la modificacion");
+									 }
 								}
 								if (mod == 2) {
 									System.out.println("anota el telefono");
-									tel = sc.nextLine();
-									// modificar el empleado con el codigo y el telefono
+									dato="Telefono";
+									telefono = sc.nextInt();
+									con = bd.modificarTelefonoEMpleados(dato, telefono, v9.get(confir-1).getCod_emple());
+									 if (con==true) {
+										 System.out.println("modificacion realizada");
+									 }
+									 else {
+										 System.out.println("se ha producido un error en la modificacion");
+									 }
 								}
 								if (mod != 1 && mod != 2) {
 									System.out.println("opcion erronea");
@@ -196,7 +246,7 @@ public class Main {
 								System.out.println("¿que pedido deseas eliminar?");
 								eli = sc.nextInt();
 
-								boolean con = bd.borrarPedidoProducto(v5.get(eli - 1).getCod_pedido());
+								 con = bd.borrarPedidoProducto(v5.get(eli - 1).getCod_pedido());
 								if (con == true) {
 									System.out.println("pedido eliminado");
 								} else {
@@ -293,7 +343,7 @@ public class Main {
 								}
 								System.out.println("que proveedor deseas eliminar");
 								int jaja = sc.nextInt();
-								boolean con = bd.borrarProveedor(v7.get(jaja - 1).getCod_prov());
+								 con = bd.borrarProveedor(v7.get(jaja - 1).getCod_prov());
 								if (con == true) {
 									System.out.println("proveedor eliminado");
 								} else {
@@ -396,13 +446,13 @@ public class Main {
 									dir = sc.nextLine();
 									System.out.println("anota el telefono del proveedor");
 									telefono = sc.nextInt();
-									boolean confir = bd.añadirProveedor(codigo, nombre, apellido, dir, telefono);
+									 con = bd.añadirProveedor(codigo, nombre, apellido, dir, telefono);
 
-									if (confir == true) {
+									if (con == true) {
 										System.out.println("proveedor introducido");
 
 									}
-									if (confir == false) {
+									if (con == false) {
 										System.out.println("se ha producido un error al crear el proveedor");
 									}
 								}

@@ -389,7 +389,7 @@ public class BD_Usuarios extends BD_Conector {
 		try {
 			this.abrir();
 			s = c.createStatement();
-			s.executeUpdate(cadena);
+			int resul = s.executeUpdate(cadena);
 			s.close();
 			this.cerrar();
 			return 1;
@@ -397,6 +397,44 @@ public class BD_Usuarios extends BD_Conector {
 		} catch (SQLException e) {
 			this.cerrar();
 			return 0;
+		}
+	}
+	public boolean modificarEmpleados(String dato, String variable2,String codigo) {
+		String cadena = "UPDATE pedidos_productos SET " +dato+ " = '" +variable2+ "' WHERE Cod_Emple LIKE '" +codigo+ "'";
+
+		try {
+			this.abrir();
+			s = c.createStatement();
+			int resul = s.executeUpdate(cadena);
+			s.close();
+			if (resul == 1) {
+				return true;
+			}
+			return false;
+			
+
+		} catch (SQLException e) {
+			this.cerrar();
+			return false;
+		}
+	}
+	public boolean modificarTelefonoEMpleados(String dato, int variable2,String codigo) {
+		String cadena = "UPDATE pedidos_productos SET " +dato+ " = '" +variable2+ "' WHERE Cod_Emple LIKE '" +codigo+ "'";
+
+		try {
+			this.abrir();
+			s = c.createStatement();
+			int resul = s.executeUpdate(cadena);
+			s.close();
+			if (resul == 1) {
+				return true;
+			}
+			return false;
+			
+
+		} catch (SQLException e) {
+			this.cerrar();
+			return false;
 		}
 	}
 	
@@ -434,6 +472,27 @@ public class BD_Usuarios extends BD_Conector {
 		} catch (SQLException e) {
 			this.cerrar();
 			return false;
+		}
+
+	}
+	public boolean borrarEmpleado(String cod_Emp) {
+		String cadena = "DELETE FROM  empleados WHERE Cod_Emple  ='" + cod_Emp + "'";
+
+		try {
+			String t = "";
+			this.abrir();
+			s = c.createStatement();
+			int resul = s.executeUpdate(cadena);
+			s.close();
+			if (resul == 1) {
+				return true;
+			}
+			this.cerrar();
+			return false;
+		} catch (SQLException e) {
+
+			return false;
+
 		}
 
 	}
