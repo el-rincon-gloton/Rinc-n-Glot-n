@@ -1,7 +1,7 @@
 /**
  * Mario Toledo
  */
-package norm;
+package modelos;
 
 import java.time.LocalDate;
 

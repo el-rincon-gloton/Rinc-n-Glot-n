@@ -1,7 +1,7 @@
 /**
  * Mario Toledo
  */
-package ventasygastos;
+package bbdd;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
