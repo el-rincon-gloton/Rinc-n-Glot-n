@@ -1,38 +1,26 @@
 /**
- * Mario Toledo
+ * Mario Toledo.
  */
 package modelos;
 
 import java.time.LocalDate;
 
 public class Gastos {
-private String cod_gasto;
-private double Presupuesto;
-private double importe_gasto;
-private double resultado;
 private LocalDate fechas_gasto;
+private String descripcion_gasto;
+private int cod_gasto;
+private double importe_gasto;
 
-
-
-public Gastos(String cod_gasto, double presupuesto, double importe_Gasto, double resultado, LocalDate fechas_gasto) {
+public Gastos(LocalDate fechas_gasto, String descripcion_gasto, int cod_gasto, double importe_gasto) {
 	super();
-	this.cod_gasto = cod_gasto;
-	Presupuesto = presupuesto;
-	this.importe_gasto = importe_gasto;
-	this.resultado = resultado;
 	this.fechas_gasto = fechas_gasto;
+	this.descripcion_gasto = descripcion_gasto;
+	this.cod_gasto = cod_gasto;
+	this.importe_gasto = importe_gasto;
 }
 
-public double getPresupuesto() {
-	return Presupuesto;
-}
-
-public String getCod_gasto() {
+public int getCod_gasto() {
 	return cod_gasto;
-}
-
-public double getResultado() {
-	return resultado;
 }
 
 public LocalDate getFechas_gasto() {
@@ -41,6 +29,10 @@ public LocalDate getFechas_gasto() {
 
 public double getImporte_gasto() {
 	return importe_gasto;
+}
+
+public String getDescripcion_gasto() {
+	return descripcion_gasto;
 }
 
 

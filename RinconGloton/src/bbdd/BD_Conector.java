@@ -1,5 +1,5 @@
 /*
- * BD_Conector: Se encarga de abrir y cerrar la base de datos
+ * BD_Conector: Se encarga de abrir y cerrar la base de datos es un metodo estatico.
  */
 package bbdd;
 
