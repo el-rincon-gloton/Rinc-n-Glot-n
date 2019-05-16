@@ -1,5 +1,5 @@
 /**
- * Mario Toledo
+ * Mario Toledo.
  */
 package modelos;
 

@@ -3,7 +3,7 @@ package modelos;
 import java.time.LocalDate;
 
 /**
- * @author Adrian Crespo
+ * @author Adrian Crespo.
  *
  */
 public class Producto {

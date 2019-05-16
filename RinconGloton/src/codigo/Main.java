@@ -81,7 +81,7 @@ public class Main {
 				try {
 					bd.mostrarbloq(nombre);
 				} catch (BloqueadaException e) {
-					System.out.println("cuenta bloqueada");
+					System.out.println("cuenta bloqueada.");
 					break;
 				}
 				LocalTime primera = LocalTime.now();

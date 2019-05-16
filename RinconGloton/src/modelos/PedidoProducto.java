@@ -1,5 +1,5 @@
 /**
- * Yago Ozores
+ * Yago Ozores.
  */
 
 package modelos;

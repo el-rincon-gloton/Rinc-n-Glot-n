@@ -3,7 +3,7 @@ package modelos;
 public class Empleados {
 
 	/**
-	 * @author Jcaballero
+	 * @author Jcaballero.
 	 *
 	 */
 	private String cod_emple;

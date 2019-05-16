@@ -1,7 +1,7 @@
 package modelos;
 
 /**
- * @author Adrian Crespo
+ * @author Adrian Crespo.
  *
  */
 
