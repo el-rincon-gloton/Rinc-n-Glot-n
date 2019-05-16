@@ -1,25 +1,28 @@
 /**
  * Mario Toledo
  */
-package norm;
+package modelos;
 
 import java.time.LocalDate;
 
 public class Ventas {
-private String Cod_Venta;
 private double Beneficio;
+private int cod_orden;
+private int Cod_Venta;
 private LocalDate fechaVenta;
-private String lugar;
 
-public Ventas(String cod_Venta, double beneficio, LocalDate fechaVenta, String lugar) {
+
+
+
+public Ventas(double beneficio, int cod_orden, int cod_Venta, LocalDate fechaVenta) {
 	super();
-	Cod_Venta = cod_Venta;
 	Beneficio = beneficio;
+	this.cod_orden = cod_orden;
+	Cod_Venta = cod_Venta;
 	this.fechaVenta = fechaVenta;
-	this.lugar = lugar;
 }
 
-public String getCod_Venta() {
+public int getCod_Venta() {
 	return Cod_Venta;
 }
 
@@ -31,9 +34,10 @@ public LocalDate getFechaVenta() {
 	return fechaVenta;
 }
 
-public String getLugar() {
-	return lugar;
+public int getCod_orden() {
+	return cod_orden;
 }
+
 
 
 }
